@@ -1,6 +1,6 @@
 ---
-title: "Harjoitus"
-author: "Karoliina KLHI"
+title: "README"
+author: "Karoliina Isoaho"
 date: "8 11 2017"
 output:
   html_document: default
@@ -8,4 +8,4 @@ output:
 ---
 *The course is a pretty fun way to start learning R !*
 
-the link to my repository is: https://isoakar.github.io/IODS-project/
+The link to my course diary is: https://isoakar.github.io/IODS-project/

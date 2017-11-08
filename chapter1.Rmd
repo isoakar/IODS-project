@@ -5,9 +5,7 @@ output:
 ---
 
 # About the project
-
 **I hope to learn R!**
  
 My repository link is https://github.com/isoakar/IODS-project
 
-install.packages("rmarkdown")
