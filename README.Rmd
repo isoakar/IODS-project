@@ -1,0 +1,11 @@
+---
+title: "Harjoitus"
+author: "Karoliina KLHI"
+date: "8 11 2017"
+output:
+  html_document: default
+  pdf_document: default
+---
+*The course is a pretty fun way to start learning R !*
+
+the link to my repository is: https://isoakar.github.io/IODS-project/
