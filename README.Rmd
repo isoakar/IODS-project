@@ -6,6 +6,6 @@ output:
   html_document: default
   pdf_document: default
 ---
-*The course is a pretty fun way to start learning R !*
+*The course is a pretty fun way to start learning R ! I want to become a data scientist :-) *
 
 The link to my course diary is: https://isoakar.github.io/IODS-project/
