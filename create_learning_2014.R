@@ -45,3 +45,39 @@ learning2014
 
 # check dimensions of new dataset learning2014
 dim(learning2014)
+
+# Write CSV in R
+write.csv(learning2014, file = "learning2014.csv")
+
+# demonstrating reading capabolities
+read.csv(file = "learning2014.csv")
+head(learning2014)
+str(learning2014)
+
+?write.csv
+
+# Start data analysis
+str(learning2014)
+head(learning2014)
+
+# install ggplot2 and ggally and access libraries
+install.packages("ggplot2")
+library(ggplot2)
+install.packages("GGally")
+library(GGally)
+
+# create a plot matrix
+p <- ggpairs(learning2014, mapping = aes(col = gender, alpha = 0.3), lower = list(combo = wrap("facethist", bins = 20)))
+
+# draw plot
+p
+
+# choosing variables for multiple regression
+
+# create a regression model with multiple explanatory variables
+my_model2 <- lm(Points ~ Attitude + stra + surf, data = learning2014)
+
+# print out a summary of the model
+summary(my_model2)
+
+
