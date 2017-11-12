@@ -1,6 +1,6 @@
-# Insert chapter 2 title here
+# Regression and model variation
 
-*Describe the work you have done this week and summarize your learning.*
+This week I have revised the basics of **regression analysis**, and started to learn about how to both **perform** and **interpret** regression analysis in R. It has been fun! I am also getting the hang of using RMarkdown, which is great. But I need *loads* more practice, both in coding and in interpreting the results... :-)
 
 - Describe your work and results clearly. 
 - Assume the reader has an introductory course level understanding of writing and reading R code as well as statistical methods
