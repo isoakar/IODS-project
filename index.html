@@ -157,7 +157,28 @@ $(document).ready(function () {
 <p>This week I have revised the basics of <strong>linear and multiple regression analysis</strong>, and started to learn about how to both <strong>perform</strong> and <strong>interpret</strong> these analyses in R. It has been fun, but not easy! I am also getting the hang of using RMarkdown, which is great. Here below you can see my data analysis on data JYTOPKYS2 dataset.</p>
 <p><strong>Data analysis</strong></p>
 <p>I have not managed to knit the chapter2.rmd yet, but please find my R code for data wrangling here: <a href="https://github.com/isoakar/IODS-project/blob/master/data/create_learning2014.R" class="uri">https://github.com/isoakar/IODS-project/blob/master/data/create_learning2014.R</a></p>
-<p>and my attempt of data analysis steps here (interpretation is lacking still): <a href="https://github.com/isoakar/IODS-project/blob/master/chapter2.Rmd" class="uri">https://github.com/isoakar/IODS-project/blob/master/chapter2.Rmd</a></p>
+<p>and my attempt of data analysis steps here (interpretation is lacking still):</p>
+<p><strong>Data analysis</strong></p>
+<p><strong>STEP 1</strong>: Here I read the data and explore its structure and dimensions.</p>
+<p>read.csv(file = “learning2014.csv”) dim(learning2014) str(learning2014)</p>
+<p>Comments: There are 166 observations and 7 variables in the data set. The variables are students’ gender, age, attitude (general attitude towards statistics), deep (deep learning strategies), stra (strategic learning strategies), surf (surface learning strategies) and points (score of statistics course).</p>
+<p>Here I install ggplot2 and GGally and access these libraries</p>
+<p>install.packages(“ggplot2”) library(ggplot2) install.packages(“GGally”) library(GGally)</p>
+<p><strong>STEP2</strong>: Here I show a graphical overview of the data and show summaries of the variables in the data. I do it with plot matrix.</p>
+<p>p &lt;- ggpairs(learning2014, mapping = aes(col = gender, alpha = 0.3), lower = list(combo = wrap(“facethist”, bins = 20)))</p>
+<p>Drawing the plot.</p>
+<p>p</p>
+<p>HERE DESCRIPTION AND INTERPRETATION OF OUTPUTS, commenting on the distributions of the variables and the relationships between them.</p>
+<p><strong>STEP 3</strong>: Choosing variables for multiple regression</p>
+<p>Here I create a regression model with multiple explanatory variables:</p>
+<p>my_model2 &lt;- lm(Points ~ Attitude + stra + surf, data = learning2014)</p>
+<p>Let’s print out a summary of the fitted model</p>
+<p>summary(my_model2)</p>
+<p>HERE comment and interpret the results. Explain and interpret the statistical test related to the model parameters. If an explanatory variable in your model does not have a statistically significant relationship with the target variable, remove the variable from the model and fit the model again without it.</p>
+<p><strong>STEP 4</strong>: Using a summary of your fitted model, explain the relationship between the chosen explanatory variables and the target variable (interpret the model parameters). Explain and interpret the multiple R squared of the model.</p>
+<p><strong>STEP 5</strong>: Here I produce the diagnostic plot: residuals vs fitted values, normal QQ-plot and residuals vs leverage.</p>
+<p>par(mfrow = c(2,2)) plot(my_model2, which = c(1,2,5))</p>
+<p>HERE Explain the assumptions of the model and interpret the validity of those assumptions based on the diagnostic plots.</p>
 <hr />
 </div>
 
