@@ -1,6 +1,53 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+---
 # Regression and model variation
 
-This week I have revised the basics of **regression analysis**, and started to learn about how to both **perform** and **interpret** regression analysis in R. It has been fun! I am also getting the hang of using RMarkdown, which is great. But I need *loads* more practice, both in coding and in interpreting the results... :-)
+This week I have revised the basics of **linear and multiple regression analysis**, and started to learn about how to both **perform** and **interpret** these analyses in R. It has been fun! I am also getting the hang of using RMarkdown, which is great. Here below you can see, . The main finding is that. :-)
+
+# Starting data analysis
+
+# STEP 1.Reading data.
+```{r }
+setwd("/Users/testitesti/Documents/GitHub/IODS-project/data/")
+getwd()
+
+learning2014 <- read.csv(file = "learning2014.csv")
+```
+
+# Demonstrating reading abilities of structure and dimensions
+```{r }
+str(learning2014)
+head(learning2014)
+dim(learning2014)
+```
+# STEP 2
+# Creating a plot matrix
+```{r }
+p <- ggpairs(learning2014, mapping = aes(col = gender), lower = list(combo = wrap("facethist", bins = 20)))
+```
+
+# Drawing the plot
+```{r }
+p
+```
+# Choosing variables for multiple regression. Creating a regression model with multiple explanatory variables
+```{r }
+my_model2 <- lm(Points ~ Attitude + stra + surf, data = learning2014)
+```
+
+# print out a summary of the model
+```{r }
+summary(my_model2)
+```
+# Producing the diagnostic plot: residuals vs fitted values, normal QQ-plot and residuals vs leverage
+
+```{r }
+par(mfrow = c(2,2))
+plot(my_model2, which = c(1,2,5))
+```
 
 - Describe your work and results clearly. 
 - Assume the reader has an introductory course level understanding of writing and reading R code as well as statistical methods
