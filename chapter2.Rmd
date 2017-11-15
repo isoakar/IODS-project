@@ -4,56 +4,12 @@ output:
 ---
 # Regression and model variation
 
-This week I have revised the basics of **linear and multiple regression analysis**, and started to learn about how to both **perform** and **interpret** these analyses in R. It has been fun! I am also getting the hang of using RMarkdown, which is great. Here below you can see my data analysis on data JYTOPKYS2 dataset. The main finding is that xyz. NB. Please refer to this link for my R code for data wrangling: 
+This week I have revised the basics of **linear and multiple regression analysis**, and started to learn about how to both **perform** and **interpret** these analyses in R. It has been fun, but not easy! I am also getting the hang of using RMarkdown, which is great. Here below you can see my data analysis on data JYTOPKYS2 dataset. 
 
 **Data analysis**
 
-**STEP 1**: Here I read the data and explore its structure and dimensions. 
-```{r }
-read.csv(file = "learning2014.csv")
-dim(learning2014)
-str(learning2014)
-```
-Comments: There are 166 observations and 7 variables in the data set. The variables are students' gender, age, attitude (general attitude towards statistics), deep (deep learning strategies), stra (strategic learning strategies), surf (surface learning strategies) and points (score of statistics course).
+I have not managed to knit the chapter2.rmd yet, but please find my R code for data wrangling here:
+https://github.com/isoakar/IODS-project/blob/master/data/create_learning2014.R 
 
-Here I install ggplot2 and GGally and access these libraries
-
-```{r }
-install.packages("ggplot2")
-library(ggplot2)
-install.packages("GGally")
-library(GGally)
-```
-
-**STEP2**: Here I show a graphical overview of the data and show summaries of the variables in the data. I do it with plot matrix.
-
-```{r }
-p <- ggpairs(learning2014, mapping = aes(col = gender, alpha = 0.3), lower = list(combo = wrap("facethist", bins = 20)))
-```
-Drawing the plot.
-```{r }
-p
-```
-HERE DESCRIPTION AND INTERPRETATION OF OUTPUTS, commenting on the distributions of the variables and the relationships between them.
-
-**STEP 3**: Choosing variables for multiple regression
-
-Here I create a regression model with multiple explanatory variables:
-```{r }
-my_model2 <- lm(Points ~ Attitude + stra + surf, data = learning2014)
-```
-Let's print out a summary of the fitted model
-```{r }
-summary(my_model2)
-``` 
-
-HERE comment and interpret the results. Explain and interpret the statistical test related to the model parameters. If an explanatory variable in your model does not have a statistically significant relationship with the target variable, remove the variable from the model and fit the model again without it. 
-
-**STEP 4**: Using a summary of your fitted model, explain the relationship between the chosen explanatory variables and the target variable (interpret the model parameters). Explain and interpret the multiple R squared of the model. 
-
-**STEP 5**: Here I produce the diagnostic plot: residuals vs fitted values, normal QQ-plot and residuals vs leverage.
-```{r }
-par(mfrow = c(2,2))
-plot(my_model2, which = c(1,2,5))
-``` 
-HERE Explain the assumptions of the model and interpret the validity of those assumptions based on the diagnostic plots.
+and my attempt of data analysis steps here (interpretation is lacking still):
+https://github.com/isoakar/IODS-project/blob/master/chapter2.Rmd
